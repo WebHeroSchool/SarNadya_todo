@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import {count} from './number.js';
+import {length} from './number.js';
 
 const lab = true;
 const num = 100;
@@ -18,25 +20,7 @@ function App() {
           Hello World!
         </p>
         <p>
-          {num}
-        </p>
-        <p>
-          {0}
-        </p>
-        <p>
-          {1+1}
-        </p>
-        <p>
-          {lab && 'lab'}
-        </p>
-        <p>
-          {lab ? 'lab' : 'not lab'}
-        </p>
-        <p>
-          {null}
-          {undefined}
-          {true}
-          {false}
+          {"count * length ="} {count*length}
         </p>
         <a
           className="App-link"
