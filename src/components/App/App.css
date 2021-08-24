@@ -1,0 +1,11 @@
+.wrap {
+  margin: auto;
+  padding: 5px 15px;
+  width: 300px;
+  background: #deb887;
+}
+
+.wrap__title {
+  font-family: sans-serif;
+  font-size: 20px;
+}
