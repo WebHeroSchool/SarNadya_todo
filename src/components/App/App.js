@@ -8,9 +8,18 @@ const todoItem = 'Поработать';
 
 const App = () => {
   const items = [
-    {value: 'Поработать'},
-    {value: 'Приготовить обед'},
-    {value: 'Выполнить тренировку'}
+    {
+      value: 'Поработать',
+      isDone: true
+    },
+    {
+      value: 'Приготовить обед',
+      isDone: true
+    },
+    {
+      value: 'Выполнить тренировку',
+      isDone: false
+    }
   ];
 
   return (
