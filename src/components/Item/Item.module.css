@@ -1,5 +1,11 @@
 .item {
   color: #333;
+  margin-right: auto;
+}
+
+.item:hover {
+  cursor: pointer;
+  color: #279c9c;
 }
 
 .done {

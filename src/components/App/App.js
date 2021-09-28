@@ -2,6 +2,7 @@ import React from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
+import ButtonAdd from '../ButtonAdd/ButtonAdd';
 import styles from './App.module.css';
 
 const todoItem = 'Поработать';
@@ -10,7 +11,7 @@ const App = () => {
   const items = [
     {
       value: 'Поработать',
-      isDone: true
+      isDone: false
     },
     {
       value: 'Приготовить обед',
@@ -18,16 +19,19 @@ const App = () => {
     },
     {
       value: 'Выполнить тренировку',
-      isDone: false
+      isDone: true
     }
   ];
 
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>Важные дела:</h1>
-      <InputItem/>
+      <div className={styles.button}>
+        <InputItem/>
+        <ButtonAdd/>
+      </div>
       <ItemList items={items}/>
-      <Footer count={3} />
+      <Footer count={1}/>
     </div>);
 }
 

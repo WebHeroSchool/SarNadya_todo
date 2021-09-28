@@ -1,11 +1,17 @@
 .wrap {
-  margin: auto;
+  margin: 30px auto;
   padding: 5px 15px;
+  border-radius: 10px;
+  box-shadow: -5px 5px 4px #999999;
   width: 300px;
-  background: #deb887;
+  background: #cfe8fc;
 }
 
 .title {
   font-family: sans-serif;
   font-size: 20px;
+}
+
+.button {
+  display: inline-flex;
 }
