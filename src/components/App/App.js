@@ -5,10 +5,9 @@ import Footer from '../Footer/Footer';
 import ButtonAdd from '../ButtonAdd/ButtonAdd';
 import styles from './App.module.css';
 
-const todoItem = 'Поработать';
-
-const App = () => {
-  const items = [
+class App extends React.Component {
+  render() {
+    const items = [
     {
       value: 'Поработать',
       isDone: false
@@ -23,16 +22,18 @@ const App = () => {
     }
   ];
 
-  return (
-    <div className={styles.wrap}>
-      <h1 className={styles.title}>Важные дела:</h1>
-      <div className={styles.button}>
-        <InputItem/>
-        <ButtonAdd/>
+    return (
+      <div className={styles.wrap}>
+        <h1 className={styles.title}>Важные дела:</h1>
+        <div className={styles.button}>
+          <InputItem/>
+          <ButtonAdd/>
+        </div>
+        <ItemList items={items}/>
+        <Footer count={1}/>
       </div>
-      <ItemList items={items}/>
-      <Footer count={1}/>
-    </div>);
+    );
+  }
 }
 
 export default App;
