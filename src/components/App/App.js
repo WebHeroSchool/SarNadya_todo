@@ -6,22 +6,24 @@ import ButtonAdd from '../ButtonAdd/ButtonAdd';
 import styles from './App.module.css';
 
 class App extends React.Component {
-  render() {
-    const items = [
-    {
-      value: 'Поработать',
-      isDone: false
-    },
-    {
-      value: 'Приготовить обед',
-      isDone: true
-    },
-    {
-      value: 'Выполнить тренировку',
-      isDone: true
-    }
-  ];
+  state = {
+    items: [
+      {
+        value: 'Поработать',
+        isDone: false
+      },
+      {
+        value: 'Приготовить обед',
+        isDone: true
+      },
+      {
+        value: 'Выполнить тренировку',
+        isDone: true
+      }
+    ]
+  };
 
+  render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Важные дела:</h1>
@@ -29,7 +31,7 @@ class App extends React.Component {
           <InputItem/>
           <ButtonAdd/>
         </div>
-        <ItemList items={items}/>
+        <ItemList items={this.state.items}/>
         <Footer count={1}/>
       </div>
     );
