@@ -1,9 +1,4 @@
 .list {
+  list-style-type: none;
   padding-left: 0;
-}
-
-.button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
