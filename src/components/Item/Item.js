@@ -4,7 +4,7 @@ import styles from './Item.module.css';
 import CheckboxLabel from '../CheckboxLabel/CheckboxLabel';
 import ButtonDelete from '../ButtonDelete/ButtonDelete';
 
-const Item = ({value, isDone, onClickDone, id}) => (
+const Item = ({value, isDone, onClickDone, id, deleteItem}) => (
   <div className={styles.list} onClick={() => onClickDone(id)}>
     <CheckboxLabel
       isDone={isDone}
@@ -18,7 +18,7 @@ const Item = ({value, isDone, onClickDone, id}) => (
     }>
       {value}
     </span>
-    <ButtonDelete/>
+    <ButtonDelete deleteItem={deleteItem}/>
   </div>);
 
 export default Item;

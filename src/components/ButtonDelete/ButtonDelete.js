@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ButtonDelete = () => {
+const ButtonDelete = (id, deleteItem) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <IconButton aria-label="delete">
-        <DeleteIcon />
+    <div className={classes.root} >
+      <IconButton aria-label="delete" >
+        <DeleteIcon onClick={() => deleteItem(id)}/>
       </IconButton>
     </div>
   );
