@@ -3,9 +3,9 @@ import Checkbox from '@mui/material/Checkbox';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-const CheckboxLabel = ({isDone}) => {
+const CheckboxLabel = ({id, onClickDone, isDone}) => {
   return (
-    <div>
+    <div onClick={() => onClickDone(id)}>
       <Checkbox {...label}
         checked={isDone}
       />
