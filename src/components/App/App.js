@@ -37,7 +37,17 @@ class App extends React.Component {
       return newItem;
     });
 
-    this.setState({items: newItemList});
+    this.setState({
+      items: newItemList
+    });
+  };
+
+  deleteItem = id => {
+    const newItemList = this.state.items.filter(item => item.id !== id);
+
+    this.setState({
+      items: newItemList
+    });
   };
 
   render() {
@@ -48,7 +58,7 @@ class App extends React.Component {
           <InputItem/>
           <ButtonAdd/>
         </div>
-        <ItemList items={this.state.items} onClickDone={this.onClickDone} />
+        <ItemList items={this.state.items} onClickDone={this.onClickDone} deleteItem={this.deleteItem}/>
         <Footer count={1}/>
       </div>
     );
