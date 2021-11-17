@@ -18,7 +18,7 @@ const Footer = ({count}) => (
         alignItems: 'stretch',
         '& > *': {
           m: 1.2,
-        },
+        }
       }}
     >
       <div>Дел осталось: {count} </div>
