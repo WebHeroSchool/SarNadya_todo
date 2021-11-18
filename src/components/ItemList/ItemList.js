@@ -3,7 +3,7 @@ import Item from '../Item/Item';
 import styles from './ItemList.module.css';
 
 const ItemList = ({items, onClickDone, id, deleteItem}) => (<ul className={styles.list}>
-  {items.map(item => <li key={item.value}>
+  {items.map(item => <li key={item.value + item.id}>
     <Item
       value={item.value}
       isDone={item.isDone}
