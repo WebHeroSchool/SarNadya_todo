@@ -4,11 +4,15 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 
-const ButtonAdd = () => {
-
+const ButtonAdd = ({clickButton}) => {
   return (
     <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab size="small" color="primary" aria-label="add">
+      <Fab
+        size="small"
+        color="primary"
+        aria-label="add"
+        onClick={() => clickButton()}
+      >
         <AddIcon />
       </Fab>
     </Box>
