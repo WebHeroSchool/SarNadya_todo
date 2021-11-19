@@ -3,15 +3,16 @@ import Item from '../Item/Item';
 import styles from './ItemList.module.css';
 
 const ItemList = ({items, onClickDone, id, deleteItem}) => (<ul className={styles.list}>
-  {items.map(item => <li key={item.value + item.id}>
+  {items.map(item =>
     <Item
       value={item.value}
       isDone={item.isDone}
       id={item.id}
+      key={item.value + item.id}
       onClickDone={onClickDone}
       deleteItem={deleteItem}
     />
-  </li>)}
+  )}
 </ul>);
 
 export default ItemList;
