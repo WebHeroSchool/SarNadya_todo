@@ -15,4 +15,8 @@ const ItemList = ({items, onClickDone, id, deleteItem}) => (<ul className={style
   )}
 </ul>);
 
+ItemList.defaultProps = {
+  items: []
+};
+
 export default ItemList;
