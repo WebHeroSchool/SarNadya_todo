@@ -22,4 +22,10 @@ const Item = ({value, isDone, onClickDone, id, deleteItem}) => (
     <ButtonDelete deleteItem={deleteItem} id={id}/>
   </div>);
 
+  Item.defaultProps = {
+    value: 'нет задачи',
+    id: 0,
+    isDone: false
+};
+
 export default Item;
