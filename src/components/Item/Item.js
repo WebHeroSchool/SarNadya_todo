@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import styles from './Item.module.css';
 import CheckboxLabel from '../CheckboxLabel/CheckboxLabel';
 import ButtonDelete from '../ButtonDelete/ButtonDelete';
+import PropTypes from 'prop-types';
 
 const Item = ({value, isDone, onClickDone, id, deleteItem}) => (
   <div className={styles.list} >
@@ -22,10 +23,19 @@ const Item = ({value, isDone, onClickDone, id, deleteItem}) => (
     <ButtonDelete deleteItem={deleteItem} id={id}/>
   </div>);
 
-  Item.defaultProps = {
-    value: 'нет задачи',
-    id: 0,
-    isDone: false
+Item.defaultProps = {
+  value: 'нет задачи',
+  id: 0,
+  isDone: false
+};
+
+Item.propTypes = {
+  value: PropTypes.string,
+  id: PropTypes.number,
+  isDone: PropTypes.bool,
+  onClickDone: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired
+
 };
 
 export default Item;

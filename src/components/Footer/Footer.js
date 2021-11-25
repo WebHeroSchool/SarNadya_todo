@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import PropTypes from 'prop-types';
 
 const buttons = [
   <Button key="all">Все</Button>,
@@ -28,8 +29,8 @@ const Footer = ({count}) => (
     </Box>
 );
 
-Footer.defaultProps = {
-  count: 0
+Footer.propTypes = {
+  count: PropTypes.number.isRequired
 };
 
 export default Footer;
