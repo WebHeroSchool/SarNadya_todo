@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from '../Item/Item';
 import styles from './ItemList.module.css';
+import PropTypes from 'prop-types';
 
 const ItemList = ({items, onClickDone, id, deleteItem}) => (<ul className={styles.list}>
   {items.map(item =>
@@ -17,6 +18,10 @@ const ItemList = ({items, onClickDone, id, deleteItem}) => (<ul className={style
 
 ItemList.defaultProps = {
   items: []
+};
+
+Item.propTypes = {
+  items: PropTypes.array
 };
 
 export default ItemList;
