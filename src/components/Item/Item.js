@@ -5,23 +5,42 @@ import CheckboxLabel from '../CheckboxLabel/CheckboxLabel';
 import ButtonDelete from '../ButtonDelete/ButtonDelete';
 import PropTypes from 'prop-types';
 
-const Item = ({value, isDone, onClickDone, id, deleteItem}) => (
-  <div className={styles.list} >
-    <CheckboxLabel
-      isDone={isDone}
-      onClickDone={onClickDone}
-      id={id}
-    />
-    <span onClick={() => onClickDone(id)} className={
-      classnames({
-        [styles.item]: true,
-        [styles.done]: isDone
-      })
-    }>
-      {value}
-    </span>
-    <ButtonDelete deleteItem={deleteItem} id={id}/>
-  </div>);
+class Item extends React.Component {
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+
+  render() {
+    const {value, isDone, onClickDone, id, deleteItem} = this.props;
+
+    return (
+      <div className={styles.list} >
+        <CheckboxLabel
+          isDone={isDone}
+          onClickDone={onClickDone}
+          id={id}
+        />
+        <span onClick={() => onClickDone(id)} className={
+          classnames({
+            [styles.item]: true,
+            [styles.done]: isDone
+          })
+        }>
+          {value}
+        </span>
+        <ButtonDelete deleteItem={deleteItem} id={id}/>
+      </div>
+    );
+  }
+}
 
 Item.defaultProps = {
   value: 'нет задачи',
