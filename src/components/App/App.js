@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
-class App extends React.Component {
-  state = {
-    items: [
+function App() {
+  const [items, setItems] = useState([
       {
         value: 'Поработать',
         isDone: false,
@@ -22,12 +21,20 @@ class App extends React.Component {
         isDone: true,
         id: 3
       }
-    ],
-    count: 3
-  };
+  ]);
 
-  onClickDone = id => {
-    const newItemList = this.state.items.map(item => {
+  const [count, setCount] = useState(3);
+
+  useEffect(() => {
+    console.log('компонент создан');
+  }, []);
+
+  useEffect(() => {
+    console.log('компонент обновлен');
+  }, [count]);
+
+  const onClickDone = id => {
+    const newItemList = items.map(item => {
       const newItem = {...item };
 
       if (item.id === id) {
@@ -37,43 +44,36 @@ class App extends React.Component {
       return newItem;
     });
 
-    this.setState({
-      items: newItemList
-    });
+    setItems(newItemList)
   };
 
-  addItem = value => {
-      this.setState(state => ({
-        items: [
-          ...state.items,
+  const addItem = value => {
+      const newItems = [
+          ...items,
           {
             value,
             isDone: false,
-            id: state.count + 1
+            id: count + 1
           }
-        ],
-        count: state.count + 1
-      }))
+      ];
+      setItems(newItems);
+      setCount(count + 1);
   };
 
-  deleteItem = id => {
-    const newItemList = this.state.items.filter(item => item.id !== id);
-    this.setState(state => ({
-      items: newItemList,
-      count: state.count - 1
-    }));
+  const deleteItem = id => {
+    const newItemList = items.filter(item => item.id !== id);
+    setItems(newItemList);
+    setCount(count - 1);
   };
 
-  render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Важные дела:</h1>
-        <InputItem addItem={this.addItem} value={this.value}/>
-        <ItemList items={this.state.items} onClickDone={this.onClickDone} deleteItem={this.deleteItem}/>
-        <Footer count={this.state.count}/>
+        <InputItem addItem={addItem} />
+        <ItemList items={items} onClickDone={onClickDone} deleteItem={deleteItem}/>
+        <Footer count={count}/>
       </div>
     );
-  }
 }
 
 export default App;
