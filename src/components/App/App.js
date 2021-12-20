@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Todo from '../Todo/Todo';
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts';
@@ -16,11 +16,11 @@ class App extends Component {
 						<Link to='/contacts'> Контакты </Link>
 					</nav>
 
-					<div className={styles.content}>
-						<Route path='/' component={About}/>
+					<Routes className={styles.content}>
+						<Route exact path='/' component={About}/>
 						<Route path='/todo' component={Todo}/>
 						<Route path='/contacts' component={Contacts}/>
-					</div>
+					</Routes>
 				</div>
 			</Router>
 		);
