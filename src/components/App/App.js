@@ -9,17 +9,17 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<div>
-					<nav>
+				<div className={styles.sidebar}>
+					<nav className={styles.menu}>
 						<Link to='/'> Обо мне </Link>
 						<Link to='/todo'> Задачи </Link>
 						<Link to='/contacts'> Контакты </Link>
 					</nav>
 
 					<Routes className={styles.content}>
-						<Route exact path='/' component={About}/>
-						<Route path='/todo' component={Todo}/>
-						<Route path='/contacts' component={Contacts}/>
+						<Route exact path='/' element={<About/>}/>
+						<Route path='/todo' element={<Todo/>}/>
+						<Route path='/contacts' element={<Contacts/>}/>
 					</Routes>
 				</div>
 			</Router>
