@@ -30,7 +30,7 @@ class About extends Component {
 		.catch(err => (
 			this.setState({
 				requestError: true,
-				isLoading: true,
+				isLoading: false,
 				error: err
 			})
 		));
@@ -48,7 +48,7 @@ class About extends Component {
 		.catch(err => (
 			this.setState({
 				requestError: true,
-				isLoading: true,
+				isLoading: false,
 				error: err
 			})
 		));
@@ -66,7 +66,7 @@ class About extends Component {
 					</div>
 				)}
 
-				{!isLoading && (
+				{!requestError && (
 					<div>
 						<Avatar alt={repoList.username} src={avatarUrl} sx={{ width: 65, height: 65 }}/>
 						<h5> {name} ({login})</h5>
@@ -74,8 +74,11 @@ class About extends Component {
 					</div>
 				)}
 
-				<h2  className={styles.prelouder}> {!isLoading? 'Мои репозитории:' : <CircularProgress disableShrink/>}</h2>
-				{!isLoading && <ul className={styles.list}>
+				<h2 className={styles.prelouder}>
+					{isLoading && <CircularProgress disableShrink/>}
+					{!requestError && 'Мои репозитории:'}
+				</h2>
+				{!requestError && <ul className={styles.list}>
 					{repoList.map(repo => (
 						<li key={repo.id}>
 							<a href={repo.html_url} className={styles.link}>
